@@ -1,0 +1,32 @@
+spring:
+  r2dbc:
+    url: r2dbc:h2:mem:///fueltx;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    username: sa
+    password:
+  datasource:
+    url: jdbc:h2:mem:fueltx-jdbc-unused;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  liquibase:
+    enabled: false
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+      - org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration
+      - org.springframework.boot.autoconfigure.jms.artemis.ArtemisAutoConfiguration
+      - org.springframework.boot.autoconfigure.jms.JmsAutoConfiguration
+
+fueltx:
+  webhook:
+    secret: test-webhook-secret
+  jms:
+    queue: fuel-transaction-events
+  cache:
+    summary-ttl: 1h
+
+logging:
+  level:
+    com.portfolio.fueltx: INFO
