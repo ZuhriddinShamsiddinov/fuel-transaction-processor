@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="001-create-fuel-transactions" author="zuhriddin">
+        <createTable tableName="fuel_transactions">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="external_transaction_id" type="varchar(128)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="driver_id" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vehicle_id" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="card_number_masked" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="merchant_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="merchant_location" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gallons" type="numeric(12,3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price_per_gallon" type="numeric(12,4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_amount" type="numeric(14,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="transaction_timestamp" type="timestamptz">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="timestamptz">
+                <constraints nullable="false"/>
+            </column>
+            <column name="processed_at" type="timestamptz"/>
+        </createTable>
+
+        <createIndex tableName="fuel_transactions" indexName="idx_fuel_tx_driver_timestamp">
+            <column name="driver_id"/>
+            <column name="transaction_timestamp"/>
+        </createIndex>
+
+        <createIndex tableName="fuel_transactions" indexName="idx_fuel_tx_status">
+            <column name="status"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
