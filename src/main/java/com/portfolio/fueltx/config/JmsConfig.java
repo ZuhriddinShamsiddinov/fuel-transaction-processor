@@ -2,7 +2,6 @@ package com.portfolio.fueltx.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.jms.ConnectionFactory;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
@@ -19,7 +18,6 @@ import org.springframework.jms.support.converter.MessageType;
  */
 @Configuration
 @EnableJms
-@ConditionalOnBean(ConnectionFactory.class)
 public class JmsConfig {
 
     @Bean

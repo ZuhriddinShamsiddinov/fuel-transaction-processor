@@ -10,8 +10,6 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 /**
- * Composes registered {@link FraudRule} strategies; flags if any rule matches.
- *
  * @author Zuhriddin
  * @see com.portfolio.fueltx.service.impl
  * @since 2026-09-10T12:55:00

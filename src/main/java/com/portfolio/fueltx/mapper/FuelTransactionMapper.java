@@ -41,21 +41,21 @@ public class FuelTransactionMapper {
         if (entity == null) {
             return null;
         }
-        return FuelTransactionResponse.builder()
-                .id(entity.getId())
-                .externalTransactionId(entity.getExternalTransactionId())
-                .driverId(entity.getDriverId())
-                .vehicleId(entity.getVehicleId())
-                .cardNumberMasked(entity.getCardNumberMasked())
-                .merchantName(entity.getMerchantName())
-                .merchantLocation(entity.getMerchantLocation())
-                .gallons(entity.getGallons())
-                .pricePerGallon(entity.getPricePerGallon())
-                .totalAmount(entity.getTotalAmount())
-                .transactionTimestamp(entity.getTransactionTimestamp())
-                .status(entity.getStatus())
-                .createdAt(entity.getCreatedAt())
-                .processedAt(entity.getProcessedAt())
-                .build();
+        return new FuelTransactionResponse(
+                entity.getId(),
+                entity.getExternalTransactionId(),
+                entity.getDriverId(),
+                entity.getVehicleId(),
+                entity.getCardNumberMasked(),
+                entity.getMerchantName(),
+                entity.getMerchantLocation(),
+                entity.getGallons(),
+                entity.getPricePerGallon(),
+                entity.getTotalAmount(),
+                entity.getTransactionTimestamp(),
+                entity.getStatus(),
+                entity.getCreatedAt(),
+                entity.getProcessedAt()
+        );
     }
 }

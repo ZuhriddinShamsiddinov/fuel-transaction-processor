@@ -11,18 +11,9 @@ import reactor.core.publisher.Mono;
  */
 public interface DriverSummaryCacheService {
 
-    /**
-     * Returns a summary from cache, or aggregates from DB and caches the result.
-     */
     Mono<DriverFuelSummary> getSummary(String driverId, SummaryPeriod period);
 
-    /**
-     * Recomputes week and month summaries after a processed transaction for the driver.
-     */
     Mono<Void> refreshAllPeriods(String driverId);
 
-    /**
-     * Aggregates PROCESSED transactions for the period and writes Redis with TTL.
-     */
     Mono<DriverFuelSummary> refreshSummary(String driverId, SummaryPeriod period);
 }

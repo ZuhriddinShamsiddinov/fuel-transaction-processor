@@ -10,8 +10,5 @@ import reactor.core.publisher.Mono;
  */
 public interface FraudCheckService {
 
-    /**
-     * Returns {@code true} when at least one fraud rule matches the payload.
-     */
     Mono<Boolean> shouldFlag(FuelTransactionWebhookRequest request);
 }

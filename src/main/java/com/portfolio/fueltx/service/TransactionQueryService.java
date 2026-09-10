@@ -24,8 +24,5 @@ public interface TransactionQueryService {
             Integer page,
             Integer size);
 
-    /**
-     * Streams CSV rows (header first) for export without loading the full result set.
-     */
     Flux<String> exportCsv(String driverId, Instant from, Instant to);
 }

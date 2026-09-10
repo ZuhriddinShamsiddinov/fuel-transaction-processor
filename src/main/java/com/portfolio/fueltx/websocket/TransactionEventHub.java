@@ -11,13 +11,7 @@ import reactor.core.publisher.Mono;
  */
 public interface TransactionEventHub {
 
-    /**
-     * Broadcasts a transaction event to all connected WebSocket clients.
-     */
     void publish(FuelTransactionResponse response);
 
-    /**
-     * Handles an inbound WebSocket session by streaming live transaction events.
-     */
     Mono<Void> handleSession(WebSocketSession session);
 }

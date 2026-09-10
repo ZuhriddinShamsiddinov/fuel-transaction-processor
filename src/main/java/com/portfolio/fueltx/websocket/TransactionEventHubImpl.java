@@ -34,7 +34,7 @@ public class TransactionEventHubImpl implements TransactionEventHub {
     public void publish(FuelTransactionResponse response) {
         Sinks.EmitResult result = sink.tryEmitNext(response);
         if (result.isFailure()) {
-            log.debug("WebSocket emit skipped result={} id={}", result, response.getId());
+            log.debug("WebSocket emit skipped result={} id={}", result, response.id());
         }
     }
 

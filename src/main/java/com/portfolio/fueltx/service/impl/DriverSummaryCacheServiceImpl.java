@@ -19,8 +19,6 @@ import java.time.Instant;
 import java.util.Locale;
 
 /**
- * Redis-backed driver fuel spend summary cache with DB aggregation fallback.
- *
  * @author Zuhriddin
  * @see com.portfolio.fueltx.service.impl
  * @since 2026-09-10T12:55:00

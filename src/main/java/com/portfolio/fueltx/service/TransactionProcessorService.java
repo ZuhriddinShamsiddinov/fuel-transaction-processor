@@ -15,14 +15,7 @@ import java.util.UUID;
  */
 public interface TransactionProcessorService {
 
-    /**
-     * Processes a webhook event once: skips duplicates, flags fraud, otherwise marks processed
-     * and refreshes the driver spend cache.
-     */
     Mono<FuelTransaction> process(FuelTransactionWebhookRequest request);
 
-    /**
-     * Approves or rejects a flagged transaction; approved ones enter the spend summary.
-     */
     Mono<FuelTransactionResponse> review(UUID id, TransactionReviewRequest reviewRequest);
 }

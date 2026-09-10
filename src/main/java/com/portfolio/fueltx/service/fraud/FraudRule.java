@@ -10,8 +10,5 @@ import reactor.core.publisher.Mono;
  */
 public interface FraudRule {
 
-    /**
-     * @return {@code true} when the transaction should be flagged
-     */
     Mono<Boolean> matches(FuelTransactionWebhookRequest request);
 }

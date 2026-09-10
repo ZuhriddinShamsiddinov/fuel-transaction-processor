@@ -22,8 +22,6 @@ import java.time.Instant;
 import java.util.UUID;
 
 /**
- * Applies idempotency, fraud checks, persistence, cache refresh, and review workflow.
- *
  * @author Zuhriddin
  * @see com.portfolio.fueltx.service.impl
  * @since 2026-09-10T12:55:00

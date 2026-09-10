@@ -2,6 +2,7 @@ package com.portfolio.fueltx;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 /**
@@ -9,7 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
  * @see com.portfolio.fueltx
  * @since 2026-09-10T12:15:00
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = RedisRepositoriesAutoConfiguration.class)
 @ConfigurationPropertiesScan
 public class FuelTransactionProcessorApplication {
 

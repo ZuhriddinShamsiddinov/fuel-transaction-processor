@@ -14,8 +14,6 @@ import java.time.Instant;
 import java.util.UUID;
 
 /**
- * Read-side queries for fuel transactions and CSV export streaming.
- *
  * @author Zuhriddin
  * @see com.portfolio.fueltx.service.impl
  * @since 2026-09-10T12:55:00

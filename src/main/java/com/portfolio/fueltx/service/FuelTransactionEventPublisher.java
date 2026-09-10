@@ -9,8 +9,5 @@ import com.portfolio.fueltx.model.dto.FuelTransactionWebhookRequest;
  */
 public interface FuelTransactionEventPublisher {
 
-    /**
-     * Enqueues the webhook payload for asynchronous processing.
-     */
     void publish(FuelTransactionWebhookRequest request);
 }

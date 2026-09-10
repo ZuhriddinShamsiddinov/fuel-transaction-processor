@@ -2,7 +2,6 @@ package com.portfolio.fueltx.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.portfolio.fueltx.model.dto.DriverFuelSummary;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
@@ -17,7 +16,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @since 2026-09-10T12:20:00
  */
 @Configuration
-@ConditionalOnBean(ReactiveRedisConnectionFactory.class)
 public class RedisConfig {
 
     @Bean

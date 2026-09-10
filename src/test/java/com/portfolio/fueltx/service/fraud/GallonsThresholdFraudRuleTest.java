@@ -33,7 +33,7 @@ class GallonsThresholdFraudRuleTest {
                 .verifyComplete();
     }
 
-    private FuelTransactionWebhookRequest.FuelTransactionWebhookRequestBuilder baseBuilder() {
+    private FuelTransactionWebhookRequest.Builder baseBuilder() {
         return FuelTransactionWebhookRequest.builder()
                 .externalTransactionId("TXN-1")
                 .driverId("DRV-1")
