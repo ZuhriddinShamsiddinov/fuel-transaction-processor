@@ -1,0 +1,66 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: fuel-transaction-processor
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/fueltx
+    username: fueltx
+    password: fueltx
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fueltx
+    username: fueltx
+    password: fueltx
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    enabled: true
+  artemis:
+    mode: native
+    broker-url: tcp://localhost:61616
+    user: fueltx
+    password: fueltx
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+fueltx:
+  webhook:
+    secret: fueltx-webhook-secret
+  jms:
+    queue: fuel-transaction-events
+  cache:
+    summary-ttl: 1h
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when_authorized
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+resilience4j:
+  ratelimiter:
+    instances:
+      webhookIngestion:
+        limit-for-period: 100
+        limit-refresh-period: 1m
+        timeout-duration: 0
+
+logging:
+  level:
+    com.portfolio.fueltx: INFO
+    org.springframework.jms: INFO
